@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة الماجد للمقاولات | ELMAGED Contracting</title>
+    <!-- الخطوط وأيقونات FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* الألوان الأساسية والمتغيرات */
+:root {
+    --primary-color: #0d233a;    /* كحلي هندسي */
+    --accent-color: #d97706;     /* برتقالي إنشائي/ذهبي */
+    --bg-light: #f8fafc;         /* خلفية فاتحة */
+    --text-dark: #1e293b;        /* لون النصوص */
+    --text-muted: #64748b;       /* نصوص فرعية */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+/* التخطيط الشبكي */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* الأزرار */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #b45309;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    padding: 12px 28px;
+    border: 2px solid var(--white);
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* الهيدر */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    color: var(--white);
+    font-size: 22px;
+}
+
+.logo span {
+    color: var(--accent-color);
+    font-size: 14px;
+    display: block;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+}
+
+.btn-lang {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* قسم الهيرو */
+.hero {
+    background: linear-gradient(rgba(13, 35, 58, 0.85), rgba(13, 35, 58, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7') center/cover;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: right;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* العناوين والخدمات */
+.sub-title {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-header.center {
+    text-align: center;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 36px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+/* المشاريع */
+.filter-btns {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: 1px solid #cbd5e1;
+    background: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.project-img {
+    height: 200px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--text-muted);
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info .category {
+    font-size: 12px;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* التواصل */
+.contact-form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+</style>
+<body>
+
+    <!-- الهيدر وشريط التنقل -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <h2>ELMAGeD <span>CONTRACTING</span></h2>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero" class="active">الرئيسية</a>
+                <a href="#about">من نحن</a>
+                <a href="#services">الخدمات</a>
+                <a href="#projects">المشاريع</a>
+                <a href="#contact">اتصل بنا</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="lang-toggle" class="btn-lang">English</button>
+                <a href="#contact" class="btn-primary">اطلب استشارة</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الهيرو الرئيسي -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>رؤية هندسية تنفذ بثقة واحترافية</h1>
+            <p>نحن في شركة إكسو للمقاولات نبتكر حلول البناء الحديثة والتطوير العقاري بالمملكة وفق أعلى معايير الجودة والاستدامة.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn-primary">استكشف مشاريعنا</a>
+                <a href="#about" class="btn-secondary">عن الشركة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section id="about" class="about section-padding">
+        <div class="container grid-2">
+            <div class="about-text">
+                <span class="sub-title">من نحن</span>
+                <h2>رواد التشييد والتطوير العقاري</h2>
+                <p>تعتبر شركة إكسو للمقاولات إحدى الشركات الوطنية الرائدة في قطاع المقاولات بالمملكة العربية السعودية. نسعى دائماً إلى تقديم حلول إنشائية متكاملة تعتمد على الجودة والدقة في التنفيذ.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <h4>الجودة والأمان</h4>
+                            <p>التزام تام بمعايير السلامة والمواصفات السعودية.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <div>
+                            <h4>الالتزام بالمواعيد</h4>
+                            <p>تسليم المشاريع في المواعيد المحددة بدقة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-img">
+                <div class="img-box">
+                    <i class="fa-solid fa-building-user placeholder-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="services section-padding bg-light">
+        <div class="container">
+            <div class="section-header center">
+                <span class="sub-title">خدماتنا</span>
+                <h2>نطاق أعمال متكامل</h2>
+            </div>
+            <div class="grid-3">
+                <div class="service-card">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                    <h3>المقاولات العامة</h3>
+                    <p>تنفيذ المباني السكنية والتجارية والمجمعات وفق أعلى المعايير الهندسية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                    <h3>الإشراف والتصميم</h3>
+                    <p>تقديم حلول معمارية وإنشائية مبتكرة تلبي متطلبات العملاء.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-hammer"></i>
+                    <h3>الترميم والتطوير</h3>
+                    <p>تحديث وتطوير المباني القائمة وإعادة تأهيلها بأحدث المواد والتصاميم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="sub-title">معرض المشاريع</span>
+                <h2>إنجازات تتحدث عن خبرتنا</h2>
+            </div>
+            
+            <!-- فلترة المشاريع -->
+            <div class="filter-btns">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="villas">الفلل السكنية</button>
+                <button class="filter-btn" data-filter="commercial">العمائر والمجمعات</button>
+            </div>
+
+            <div class="grid-3 projects-grid">
+                <div class="project-card" data-category="villas">
+                    <div class="project-img">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="category">فلل سكنية</span>
+                        <h3>مشروع مجمع الفلل الفاخرة</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> الرياض، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="commercial">
+                    <div class="project-img">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="category">عمائر تجارية</span>
+                        <h3>برج إكسو التجاري</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> جدة، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="villas">
+                    <div class="project-img">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="category">فلل سكنية</span>
+                        <h3>فيلا مودرن سكنية</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> الخبر، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم اتصل بنا -->
+    <section id="contact" class="contact section-padding bg-light">
+        <div class="container grid-2">
+            <div class="contact-info">
+                <span class="sub-title">تواصل معنا</span>
+                <h2>دعنا نبني مشروعك القادم معاً</h2>
+                <p>تواصل مع فريقنا الفني للحصول على استشارة هندسية أو طلب عرض سعر.</p>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+201024279904</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>magedgis2000@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>الرياض، المملكة العربية السعودية</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="الاسم الكامل" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="رقم الهاتف" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="تفاصيل المشروع أو الاستفسار" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary full-width">إرسال الطلب</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>جميع الحقوق محفوظة © 2026 لشركة إلماجد للمقاولات (ELMAGED Contracting)</p>
+        </div>
+    </footer>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. فلترة المشاريع
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 2. تبديل اللغة (Arabic / English)
+    const langBtn = document.getElementById('lang-toggle');
+    let currentLang = 'ar';
+
+    langBtn.addEventListener('click', () => {
+        if (currentLang === 'ar') {
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
+            langBtn.textContent = 'عربي';
+            currentLang = 'en';
+            
+            // يمكن إضافة خريطة ترجمة نصوص هنا
+            document.querySelector('.hero-content h1').textContent = "Engineering Vision Executed with Trust & Expertise";
+            document.querySelector('.hero-content p').textContent = "We create modern construction solutions and real estate development in KSA.";
+        } else {
+            document.documentElement.setAttribute('lang', 'ar');
+            document.documentElement.setAttribute('dir', 'rtl');
+            langBtn.textContent = 'English';
+            currentLang = 'ar';
+
+            document.querySelector('.hero-content h1').textContent = "رؤية هندسية تنفذ بثقة واحترافية";
+            document.querySelector('.hero-content p').textContent = "نحن في شركة إكسو للمقاولات نبتكر حلول البناء الحديثة والتطوير العقاري بالمملكة وفق أعلى معايير الجودة والاستدامة.";
+        }
+    });
+
+});
+    </script>
+</body>
+</html>
